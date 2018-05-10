@@ -11,6 +11,10 @@ class Property(models.Model):
     picture_url = models.CharField(max_length=256)
     price = models.DecimalField(decimal_places=2, max_digits=10)   
 
+    def getGeoPoint(self):
+    	geolocator = Nominatim()
+    	loc = geo
+
     def __str__(self):
         return self.prop_type + ' @ ' + self.address
 
