@@ -15,7 +15,7 @@ class TestPropertyViews(TestCase):
 		url = reverse('query') + '?' + condo
 		response = client.get(url)
 		result = response.context['result']
-		self.assertEqual(result_var.length > 1, True)
+		self.assertEqual(result.length > 1, True)
 
 	def test_PropertyLookupDistanceView(self):
 		client = Client()

@@ -12,8 +12,8 @@
         </form>
     </div>
     <div class="col">
-        {% for i in result %}
-            <p><a href="{{% url 'properties:detail' i.pk %}}"<a/></p>
+        {% for i in searches %}
+            <p><a href="{% url 'properties:detail' i.pk %}">{{i.pk}}<a/></p>
         {% endfor %}
     </div>
 </div>

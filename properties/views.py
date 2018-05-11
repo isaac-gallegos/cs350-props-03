@@ -44,7 +44,7 @@ class PropertyLookupView(generic.FormView):
         try:
             searches = []
             q = self.request.GET['search']
-            for i in Property.object.all:
+            for i in Property.objects.all():
                 if q in i.prop_type:
                     searches.append[i]
 
@@ -61,7 +61,7 @@ class PropertyDistanceView(generic.FormView):
     template_name = "properties/distance.html"
 
     def get_context_data(self, **kwargs):
-        context = super(PropertyDistanceSearch, self).get_context_data(**kwargs)
+        context = super(PropertyDistanceView, self).get_context_data(**kwargs)
         try:
             result = []
             q = self.request.GET['location']
