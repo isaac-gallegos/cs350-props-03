@@ -44,9 +44,10 @@ class PropertyLookupView(generic.FormView):
         try:
             searches = []
             q = self.request.GET['search']
-            for i in Property.objects.all():
+            properties = Property.objects.all()
+            for i in properties:
                 if q in i.prop_type:
-                    searches.append[i]
+                    searches.append(i)
 
             context['result'] = searches
         except:
@@ -77,7 +78,7 @@ class PropertyDistanceView(generic.FormView):
                     loc2 = geolocator.geocode(i.address)
                     d = distance((loc.latitude, loc.longitude), (loc2.latitude, loc2.longitude)).miles
                     if d < distance:
-                        result.append[i]
+                        result.append(i)
                         
                 context['result'] = result
         except:
