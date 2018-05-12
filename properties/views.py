@@ -45,15 +45,17 @@ class PropertyLookupView(generic.FormView):
     def get_context_data(self, **kwargs):
         context = super(PropertyLookupView, self).get_context_data(**kwargs) 
         try:
-            searches = []
+            result = []
             q = self.request.GET['search']
             properties = Property.objects.all()
             for i in properties:
                 if q in i.prop_type:
-                    searches.append(i)
+                    result.append(i)
 
-            context['result'] = searches
-        except:
+            context['result'] = result
+
+        except Exception as e:
+            print e
             pass
         
         return context
@@ -85,7 +87,8 @@ class PropertyDistanceView(generic.FormView):
                         
                 print (results)
                 context['result'] = result
-        except:
+        except Exception as e:
+            print e
             pass
 
         return context
