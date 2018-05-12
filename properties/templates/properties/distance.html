@@ -12,9 +12,9 @@
         </form>
     </div>
     <div class="col">
-        {% for i in result %}
-            <p><a href="{% url 'properties:detail' i.pk %}"><a/></p>
-        {% endfor %}
+            {% for i in result %}
+                <p>{{ i.address }} - {{ i.prop_type }}</p>
+            {% endfor %} 
     </div>
 </div>
 {% endblock content %} 

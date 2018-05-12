@@ -14,7 +14,7 @@ urlpatterns = [
     url(r'^edit/$', views.PropertyUpdateView.as_view(), name='edit'),
 
 # http://localhost:8000/property/detail/1/
-    url(r'^detail/(?P<pk>[0-9]+)/$', views.PropertyDetailView.as_view(), name='detail'),
+    url(r'^/(?P<pk>[0-9]+)/$', views.PropertyDetailView.as_view(), name='detail'),
 
     url(r'^lookup/$', views.PropertyLookupView.as_view(), name='lookup'),
 	url(r'^distance/$', views.PropertyDistanceView.as_view(), name='distance'),

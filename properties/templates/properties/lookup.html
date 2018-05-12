@@ -13,7 +13,7 @@
     </div>
     <div class="col">
         {% for i in searches %}
-            <p> >{{ property.prop_type }} <!--- <a href="{% url 'properties:detail' i.pk %}">{{i.pk}}<a/> ---></p>
+            <p>{{ i.address }} - {{ i.prop_type }}</p>
         {% endfor %}
     </div>
 </div>

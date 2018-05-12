@@ -5,6 +5,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
+from geopy.distance import distance
+from geopy.geocoders import Nominatim
+
 from .models import Property
 from .forms import LookupForm
 from .forms import DistanceForm
@@ -65,7 +68,7 @@ class PropertyDistanceView(generic.FormView):
         context = super(PropertyDistanceView, self).get_context_data(**kwargs)
         try:
             result = []
-            q = self.request.GET['location']
+            q = self.request.GET['address']
             distance = self.request.GET['distance']
             geolocator = Nominatim()
             loc = geolocator.geocode(q)
@@ -80,6 +83,7 @@ class PropertyDistanceView(generic.FormView):
                     if d < distance:
                         result.append(i)
                         
+                print (results)
                 context['result'] = result
         except:
             pass
